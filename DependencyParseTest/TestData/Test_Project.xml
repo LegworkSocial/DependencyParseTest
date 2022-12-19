@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<RootNamespace>Sample.Project</RootNamespace>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="App\Interfaces\**" />
+		<Content Remove="App\Interfaces\**" />
+		<EmbeddedResource Remove="App\Interfaces\**" />
+		<None Remove="App\Interfaces\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="swagger.yaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="swagger.yaml">
+			<LogicalName>swagger.yaml</LogicalName>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+		<PackageReference Include="Confluent.Kafka" Version="1.7.0" />
+		<PackageReference Include="flurl.http" Version="3.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="5.0.7" />
+		<PackageReference Include="morelinq" Version="3.3.2" />
+		<PackageReference Include="newtonsoft.json" Version="13.0.1" />
+		<PackageReference Include="Npgsql" Version="5.0.7" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
+		<PackageReference Include="polly" Version="7.2.2" />
+		<PackageReference Include="serilog" Version="2.10.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+		<PackageReference Include="Serilog.Enrichers.ClientInfo" Version="1.1.3" />
+		<PackageReference Include="serilog.extensions.logging" Version="3.0.1" />
+		<PackageReference Include="serilog.settings.configuration" Version="3.1.0" />
+		<PackageReference Include="serilog.sinks.console" Version="3.1.1" />
+		<PackageReference Include="yamldotnet" Version="11.2.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="App\Extensions\" />
+		<Folder Include="Interfaces\" />
+	</ItemGroup>
+
+</Project>

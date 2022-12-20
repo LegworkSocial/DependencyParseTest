@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vscode
+/.vs
+/DependencyParseTest/bin/Debug/net6.0
+/DependencyParseTest/obj/Debug/net6.0
+/DependencyParseTest/obj
+/DependencyParseTestAnswer/bin/Debug/net6.0
+/DependencyParseTestAnswer/obj

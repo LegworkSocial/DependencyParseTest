@@ -1,5 +1,8 @@
 ﻿namespace DependencyParseTest
 {
+    /// <summary>
+    /// Represents the information about a package dependency
+    /// </summary>
     public class PackageInfo : IEquatable<PackageInfo>
     {
         public string PackageName { get; set; }

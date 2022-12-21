@@ -6,6 +6,11 @@ namespace DependencyParseTest
     public class NpmDependencyParser : DependencyParserBase
     {
 
+        /// <summary>
+        /// Returns a <see cref="List{T}"/> of <see cref="PackageInfo"/> based on the provided file path
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         public List<PackageInfo> GetPackageInfos(string file)
         {
             var fileContents = File.ReadAllText(file);
@@ -18,6 +23,11 @@ namespace DependencyParseTest
             return packageInfos.OrderBy(d => d.PackageName).ToList();
         }
 
+        /// <summary>
+        /// Writes a csv file to the specified path
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <exception cref="NotImplementedException"></exception>
         public override void WriteCSVFile(string filePath)
         {
             throw new NotImplementedException();

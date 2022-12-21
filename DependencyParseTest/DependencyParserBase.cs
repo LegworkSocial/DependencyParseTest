@@ -8,6 +8,12 @@ namespace DependencyParseTest
     public abstract class DependencyParserBase
     {
         public const string DEFAULT_VERSION_NUMBER = "0.0.0";
+
+        /// <summary>
+        /// returns a <see cref="PackageInfo"/> with the version set to the latest version available from Nuget
+        /// </summary>
+        /// <param name="currentPackageInfo"></param>
+        /// <returns></returns>
         private async Task<PackageInfo> GetNugetMaxVersionValuesAsync(PackageInfo currentPackageInfo)
         {
             var nugetPackageInfo = new PackageInfo(currentPackageInfo.PackageName, currentPackageInfo.Version.ToString(), currentPackageInfo.Source);
@@ -24,6 +30,11 @@ namespace DependencyParseTest
             return nugetPackageInfo;
         }
 
+        /// <summary>
+        /// Returns a <see cref="PackageInfo" /> with the version set to the latest version available from NPM
+        /// </summary>
+        /// <param name="currentPackageInfo"></param>
+        /// <returns></returns>
         private async Task<PackageInfo> GetNPMMaxVersionValueAsync(PackageInfo currentPackageInfo)
         {
             using (var client = new HttpClient())
@@ -80,12 +91,22 @@ namespace DependencyParseTest
             return null;
         }
 
+        /// <summary>
+        /// Replaces extra \ and single " with blanks
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string HygieneString(string input)
         {
             input = input.Replace("\"", "").Replace("\\", "");
             return input;
         }
 
+        /// <summary>
+        /// Returns a string that can be parsed by the <see cref="Version"/> class
+        /// </summary>
+        /// <param name="version"></param>
+        /// <returns></returns>
         public static string HygieneVersion(string version)
         {
             if (string.IsNullOrEmpty(version))

@@ -3,7 +3,7 @@ Project is a console application. The goal is to parse project files to understa
 ## Instructions
 1) Get the dependency info from each of the sample files in the TestData directory
 2) Get the latest version of each dependency
-3) For each file, output the package name, current version, and latest version
+3) Output the package name, current version, and latest version for all dependencies identified
 	Example: "Faker": "0.7.2","1.0.0"
 4) Refactor the project to embrace SOLID principles
 
